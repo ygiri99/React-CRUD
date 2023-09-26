@@ -24,8 +24,6 @@ catch(error){console.log(error); }
   let marks = apiData.map(ele =>{
     return ele.mark;
   })
-
-  let total = apiData.length;
    
    ChartJS.register(
     BarElement,CategoryScale,LinearScale,Tooltip,Legend
@@ -34,7 +32,7 @@ catch(error){console.log(error); }
     labels: names,
     datasets: [
       {
-        label: `${total} Students Percentage Chart`,
+        label: `Students Percentage Chart outof 600`,
         data: marks,
         backgroundColor: 'pink',
         borderColor: 'black',
