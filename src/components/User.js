@@ -16,9 +16,15 @@ export default function User() {
     navigate('/UpdateUser');
   }
 
-  const del = async(id) => {
-    await deleteApi(id);
-    datas();
+  const del = (id,name) => {
+    if(window.confirm(`Do you want to delete ${name}?`)){
+      (async(id) => {
+        await deleteApi(id);
+        datas();
+      })(id);
+    } else {
+      return;
+    }
   }
 
   useEffect(() => {
@@ -56,7 +62,7 @@ const datas = async() => {
               <td> {data.mark}</td>
               <td> {data.percent}</td>
               <td><Button className= 'bg-warning' onClick={() => upDate(data)}>Edit</Button></td>
-              <td><Button className='bg-danger' onClick={() => del(data.id)}>Delete</Button></td>
+              <td><Button className='bg-danger' onClick={() => del(data.id,data.name)}>Delete</Button></td>
             </tr>
             ))}
           </tbody>
