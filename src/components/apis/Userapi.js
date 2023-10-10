@@ -22,3 +22,10 @@ export async function readApi() {
   }
   catch(error) {console.log(error);}
 }
+
+export async function readIdApi(id) {
+  try { const response = await axios.get(Api_URL+`/${id}`);
+        return response.data;
+  }
+  catch(error) {console.log(error);}
+}

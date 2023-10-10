@@ -1,7 +1,8 @@
 import { Button, Table } from 'reactstrap';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteApi, readApi } from './apis/Userapi';
+import {GrView} from 'react-icons/gr';
 
 export default function User() {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const datas = async() => {
               <th>Course</th>
               <th>Mark</th>
               <th>Percent</th>
+              <th>View</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -61,6 +63,7 @@ const datas = async() => {
               <td>{data.course}</td>
               <td> {data.mark}</td>
               <td> {data.percent}</td>
+              <td> <Link to={data.id}><GrView/></Link></td>
               <td><Button className= 'bg-warning' onClick={() => upDate(data)}>Edit</Button></td>
               <td><Button className='bg-danger' onClick={() => del(data.id,data.name)}>Delete</Button></td>
             </tr>

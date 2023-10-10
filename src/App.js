@@ -6,6 +6,7 @@ import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
 import Adduser from './components/Adduser';
 import UpdateUser from './components/UpdateUser';
+import UserDetail from './components/UserDetail';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='profile' element={<Profile />}/>
           <Route path='adduser' element={<Adduser/>}/>
           <Route path='updateuser' element={<UpdateUser/>}/>
+          <Route path='user/:id' element={<UserDetail/>}/>
         </Route>
       </Routes>
       
